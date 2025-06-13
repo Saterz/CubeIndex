@@ -39,7 +39,7 @@
             <div class="my-6 flex flex-col sm:flex-row items-center gap-6">
                 <img
                     src={cube.image_url}
-                    alt={cube.name}
+                    alt="{cube.series} {cube.model} {cube.version_name}"
                     class="rounded-2xl bg-base-200 p-4 my-4 border border-base-300 object-contain w-full max-w-md max-h-96"
                 />
             </div>
@@ -50,7 +50,7 @@
                     {#if cube.version_type !== "Base"}
                         <span class="text-secondary">{cube.version_name}</span>
                     {/if}
-                    <CubeVersionType {cube} moreInfo={true} />
+                    <CubeVersionType version_type={cube.version_type} moreInfo={true} />
                 </span>
             </h1>
 
@@ -118,6 +118,10 @@
                         <span class="font-medium">{cube.weight} g</span>
                     </div>
                     <div class="flex items-center justify-between">
+                        <span>Size:</span>
+                        <span class="font-medium">{cube.size} mm3</span>
+                    </div>
+                    <div class="flex items-center justify-between">
                         <span>Surface Finish:</span>
                         <span class="font-medium">{cube.surface_finish}</span>
                     </div>
@@ -154,6 +158,10 @@
                     <div class="flex items-center justify-between">
                         <span>Maglev:</span>
                         <span class="text-xl">{cube.maglev ? "✅" : "❌"}</span>
+                    </div>
+                    <div class="flex items-center justify-between">
+                        <span>Discontinued:</span>
+                        <span class="text-xl">{cube.discontinued ? "✅" : "❌"}</span>
                     </div>
                 </div>
             </div>
